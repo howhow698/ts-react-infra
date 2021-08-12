@@ -17,21 +17,20 @@ module.exports = env => {
           use: [
             {
               loader: 'babel-loader',
-              // options: {
-              //   plugins: [
-              //     isDevelopment && require.resolve('react-refresh/babel')
-              //   ]
-              // }
             }
           ]
         },
         {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          test: /\.(s(a|c)ss)$/,
+          use: ['style-loader','css-loader', 'sass-loader']
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(?:ico|png|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource'
+        },
+        {
+          test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+          type: 'asset/inline'
         }
       ]
     },
